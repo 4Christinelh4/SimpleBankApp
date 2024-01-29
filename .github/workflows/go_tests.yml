@@ -24,4 +24,4 @@ jobs:
     needs: build
     steps:
     - name: check files
-    run: go test 
+      run: go test 
