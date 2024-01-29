@@ -22,6 +22,7 @@ jobs:
 
   after-build:
     needs: build
+    runs-on: ubuntu-latest
     steps:
     - name: check files
       run: go test 
