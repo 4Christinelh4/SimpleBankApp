@@ -25,3 +25,13 @@ func TestCreateAccount (t *testing.T) {
 	require.NotZero(t,acc.ID)
 	require.NotZero(t, acc.CreatedAt)
 }
+
+func TestGetAccount (t *testing.T) {
+	acc, err := testQueries.GetAccount(context.Background(), 1)
+
+	require.NoError(t, err)
+	require.NotEmpty(t, acc)
+
+	require.Equal(t, acc.Balance, int64(100))
+
+}
