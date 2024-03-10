@@ -1,6 +1,8 @@
 -- name: CreateEntry :one
 INSERT INTO entries (
-    id,
     account_id,
     amount
-) VALUES ($1, $2, $3) RETURNING *;
+) VALUES ($1, $2) RETURNING *;
+
+-- name: GetEntry :one
+SELECT * FROM entries where id=$1 LIMIT 1;
