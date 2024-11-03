@@ -1,16 +1,25 @@
 postgres:
 	docker run --name postgres14 -p 5435:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret1 -d postgres:14-alpine
 
+mysql:
+	docker run --name mysql8 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=secret -d mysql:8
+
 createdb:
 	docker exec -it postgres14 createdb --username=root --owner=root simple_bank
 
 dropdb:
 	docker exec -it postgres14 dropdb simple_bank
 
-migratedbup:
+migrateup:
 	migrate -path db/migration -database "postgresql://root:secret1@localhost:5435/simple_bank?sslmode=disable" -verbose up
+
+migratedown:
+	migrate -path db/migration -database "postgresql://root:secret1@localhost:5435/simple_bank?sslmode=disable" -verbose down
 
 sqlc:
 	sqlc generate
+
+test:
+	go test -v -cover ./...
 
 .PHONY: postgres creatdb migratedbup sqlc
