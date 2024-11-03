@@ -10,7 +10,7 @@ import (
 
 const (
 	dbDriver = "postgres"
-	dbSource = "postgresql://root:secret1@localhost:5435/simple_bank?sslmode=disable"
+	dbSource = "postgresql://root:secret1@localhost:5432/simple_bank?sslmode=disable"
 )
 
 
