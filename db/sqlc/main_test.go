@@ -13,7 +13,6 @@ const (
 	dbSource = "postgresql://root:secret1@localhost:5432/simple_bank?sslmode=disable"
 )
 
-
 var testQueries *Queries
 var testDB *sql.DB
 

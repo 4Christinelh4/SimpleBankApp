@@ -40,5 +40,3 @@ func RandomCurrency() string {
 
 	return currencies[rand.Intn(n)]
 }
-
-
