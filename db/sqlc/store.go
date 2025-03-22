@@ -48,6 +48,10 @@ type TransferTxResults struct {
 	ToEntry   Entry    `json:"to_ent"`
 }
 
+func (store *Store) Createsession()  {
+
+}
+
 func (store *Store) TransferTx(ctx context.Context, args TransferTxParams) (TransferTxResults, error) {
 	var res TransferTxResults
 

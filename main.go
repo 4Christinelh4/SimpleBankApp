@@ -15,7 +15,7 @@ import (
 )
 
 func main() {
-	config, err := util.LoadConfig("app.env")
+	config, err := util.LoadConfig(".")
 	if err != nil {
 		log.Fatal("Cannot LoadConfig:", err)
 	}
@@ -57,3 +57,4 @@ func runGrpcServer(config util.Config, store db.Store) {
 		log.Fatal("Cannot serve on GRPC server")
 	}
 }
+
